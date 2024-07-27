@@ -34,16 +34,24 @@ function createComponentCheckbox() {
 function createComponentButtonEdit(inputParagraphId) {
   const editingCommponent = () => {
     const inputId = document.getElementById(inputParagraphId);
-    inputId.disabled = false;
+
+    if (buttonEdit.textContent === "Edit") {
+      inputId.disabled = false;
+      buttonEdit.textContent = "Save";
+    } else {
+      inputId.disabled = true;
+      buttonEdit.textContent = "Edit";
+    }
   };
 
   const buttonEdit = document.createElement("button");
-  const text = document.createTextNode("Edit");
-
+  buttonEdit.textContent = "Edit";
   buttonEdit.type = "button";
-  buttonEdit.appendChild(text);
   buttonEdit.onclick = editingCommponent;
+
   const buttonEditId = (buttonEdit.id = `buttonEditId-${id}`);
+  // const buttonDeleteClass =
+  //   (buttonDelete.className = `btn-commponent btn-delete   btn-delete-${id}`);
 
   return buttonEdit;
 }
@@ -55,13 +63,13 @@ function createComponentButtonDelete(taskBoxId) {
   };
 
   const buttonDelete = document.createElement("button");
-  const text = document.createTextNode("Delete");
-
   buttonDelete.type = "button";
-  buttonDelete.appendChild(text);
+  buttonDelete.textContent = "Delete";
   buttonDelete.onclick = deleteCommponent;
 
   const buttonDeleteId = (buttonDelete.id = `buttonDeleteId-${id}`);
+  const buttonDeleteClass =
+    (buttonDelete.className = `btn-commponent btn-delete   btn-delete-${id}`);
 
   return buttonDelete;
 }
