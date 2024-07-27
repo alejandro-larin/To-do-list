@@ -2,6 +2,7 @@ const nameTask = document.getElementById("nameTask");
 const container = document.getElementById("container");
 const btnSend = document.getElementById("btnSend");
 let id = 0;
+
 btnSend.addEventListener("click", () => {
   const BoxLisTask = createComponentBoxList();
   container.appendChild(BoxLisTask);
@@ -10,14 +11,15 @@ btnSend.addEventListener("click", () => {
 });
 
 // Creating commponents for html Dom
-function createComponentParagraph(name) {
-  const paragraph = document.createElement("p");
-  const text = document.createTextNode(name);
+function createComponentInputinputParagraph(name) {
+  const inputParagraph = document.createElement("input");
 
-  paragraph.appendChild(text);
-  const paragraphId = (paragraph.id = `paragraphId-${id}`);
+  inputParagraph.value = name;
+  inputParagraph.disabled = true;
 
-  return paragraph;
+  const inputParagraphId = (inputParagraph.id = `inputParagraphId-${id}`);
+
+  return inputParagraph;
 }
 
 function createComponentCheckbox() {
@@ -29,9 +31,10 @@ function createComponentCheckbox() {
   return checkBox;
 }
 
-function createComponentButtonEdit(taskBoxId) {
+function createComponentButtonEdit(inputParagraphId) {
   const editingCommponent = () => {
-    console.log(buttonEditId);
+    const inputId = document.getElementById(inputParagraphId);
+    inputId.disabled = false;
   };
 
   const buttonEdit = document.createElement("button");
@@ -70,13 +73,13 @@ function createComponentBoxList() {
   taskBox.className = `box task-${id}`;
   const taskBoxId = (taskBox.id = `taskBoxId-${id}`);
 
-  const paragraph = createComponentParagraph(nameTask.value);
+  const inputParagraph = createComponentInputinputParagraph(nameTask.value);
   const checkBox = createComponentCheckbox();
-  const buttonEdit = createComponentButtonEdit(taskBoxId);
+  const buttonEdit = createComponentButtonEdit(`inputParagraphId-${id}`);
   const buttonDelete = createComponentButtonDelete(taskBoxId);
 
   taskBox.appendChild(checkBox);
-  taskBox.appendChild(paragraph);
+  taskBox.appendChild(inputParagraph);
   taskBox.appendChild(buttonEdit);
   taskBox.appendChild(buttonDelete);
 
