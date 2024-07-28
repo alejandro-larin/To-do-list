@@ -8,16 +8,22 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1></h1>
+    <h1 class="title" id="title">Task List</h1>
     <br />
     <label for="">Name task: </label>
     <input type="text" id="nameTask" ac />
 
-    <button type="button" id="btnSend">Send</button>
+    <button type="button" class="btn-commponent btn-add" id="btnAdd">
+      Add task
+    </button>
     <hr />
     <br />
+    <h2 class="subtitle" id="subtitle">Tasks</h2>
     <div id="container"></div>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="script.js"></script>
+    <script src="utils/alertsUser.js"></script>
+    <script type="module" src="utils/commponentDom.js"></script>
+    <script src="utils/titlteYear.js"></script>
   </body>
 </html>
