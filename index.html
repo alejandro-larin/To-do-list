@@ -4,22 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>List Form</title>
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 class="title" id="title">Task List</h1>
-    <br />
-    <label for="">Name task: </label>
-    <input type="text" id="nameTask" ac />
+    <div class="container">
+      <div class="container-title">
+        <h1 class="title" id="title">Task List</h1>
+      </div>
+      <div class="container-form">
+        <input
+          type="text"
+          placeholder="What do you have planned?"
+          id="nameTask"
+        />
+        <button type="button" class="btn-add" id="btnAdd">Add task</button>
+      </div>
+      <div class="container-subtitle">
+        <h2 class="subtitle" id="subtitle">Tasks</h2>
+      </div>
+      <div id="container-task"></div>
+    </div>
 
-    <button type="button" class="btn-commponent btn-add" id="btnAdd">
-      Add task
-    </button>
-    <hr />
-    <br />
-    <h2 class="subtitle" id="subtitle">Tasks</h2>
-    <div id="container"></div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="script.js"></script>
     <script src="utils/alertsUser.js"></script>

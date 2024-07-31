@@ -9,7 +9,7 @@ function createComponentInputParagraph(nameValue) {
 
   const inputParagraphId = (inputParagraph.id = `inputParagraphId-${id}`);
   const inputParagraphClass =
-    (inputParagraph.className = `input-paragraph input-paragraph-${id}`);
+    (inputParagraph.className = `input-paragraph-${id} input-paragraph `);
 
   return {
     inputParagraph: inputParagraph,
@@ -40,23 +40,25 @@ function createComponentButtonEdit(ComponentId) {
   const editingCommponent = () => {
     const inputId = document.getElementById(ComponentId);
 
-    if (buttonEdit.textContent === "Edit") {
+    if (buttonEdit.textContent === "EDIT") {
       inputId.disabled = false;
-      buttonEdit.textContent = "Save";
+      inputId.style.color = "#ba1a4a";
+      buttonEdit.textContent = "SAVE";
     } else {
+      inputId.style.color = "#eee";
       inputId.disabled = true;
-      buttonEdit.textContent = "Edit";
+      buttonEdit.textContent = "EDIT";
     }
   };
 
   const buttonEdit = document.createElement("button");
-  buttonEdit.textContent = "Edit";
+  buttonEdit.textContent = "EDIT";
   buttonEdit.type = "button";
   buttonEdit.onclick = editingCommponent;
 
   const buttonEditId = (buttonEdit.id = `buttonEditId-${id}`);
   const buttonEditClass =
-    (buttonEdit.className = `btn-commponent btn-edit btn-edit-${id}`);
+    (buttonEdit.className = `btn-edit-${id} btn-edit btn-commponent `);
 
   return {
     buttonEdit: buttonEdit,
@@ -88,12 +90,12 @@ function createComponentButtonDelete(ComponentId) {
 
   const buttonDelete = document.createElement("button");
   buttonDelete.type = "button";
-  buttonDelete.textContent = "Delete";
+  buttonDelete.textContent = "DELETE";
   buttonDelete.onclick = deleteCommponent;
 
   const buttonDeleteId = (buttonDelete.id = `buttonDeleteId-${id}`);
   const buttonDeleteClass =
-    (buttonDelete.className = `btn-commponent btn-delete btn-delete-${id}`);
+    (buttonDelete.className = ` btn-delete-${id} btn-delete btn-commponent`);
 
   return {
     buttonDelete: buttonDelete,
@@ -107,7 +109,7 @@ export function createComponentBoxList(nameTaskValue) {
 
   taskBox.style.display = "flex";
 
-  const taskBoxClass = (taskBox.className = `box-task box-task-${id}`);
+  const taskBoxClass = (taskBox.className = `box-task-${id} box-task `);
   const taskBoxId = (taskBox.id = `taskBoxId-${id}`);
 
   const { inputParagraph, inputParagraphId } =
@@ -116,7 +118,6 @@ export function createComponentBoxList(nameTaskValue) {
   const { buttonEdit } = createComponentButtonEdit(inputParagraphId);
   const { buttonDelete } = createComponentButtonDelete(taskBoxId);
 
-  taskBox.appendChild(checkBox);
   taskBox.appendChild(inputParagraph);
   taskBox.appendChild(buttonEdit);
   taskBox.appendChild(buttonDelete);

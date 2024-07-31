@@ -1,7 +1,7 @@
 import { createComponentBoxList } from "./utils/commponentDom.js";
 
 const nameTask = document.getElementById("nameTask");
-const container = document.getElementById("container");
+const container = document.getElementById("container-task");
 const btnAdd = document.getElementById("btnAdd");
 
 export let id = 0;
@@ -11,5 +11,5 @@ btnAdd.addEventListener("click", () => {
   container.appendChild(taskBox);
   id++;
 
-  MessageUser.Successful("Your work has been successfully added");
+  MessageUser.Successful("Your task has been successfully added");
 });
